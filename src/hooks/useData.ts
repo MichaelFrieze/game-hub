@@ -41,8 +41,6 @@ const useData = <T>(
     deps ? [...deps] : []
   );
 
-  console.log(data, error, isLoading, deps, endpoint, requestConfig);
-
   return { data, error, isLoading };
 };
 
