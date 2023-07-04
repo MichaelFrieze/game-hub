@@ -28,8 +28,6 @@ const useGames = (gameQuery: GameQuery) =>
         },
       }),
     getNextPageParam: (lastPage, allPages) => {
-      console.log('This is last page: ', lastPage);
-      console.log('This is all pages: ', allPages);
       return lastPage.next ? allPages.length + 1 : undefined;
     },
   });

@@ -23,10 +23,6 @@ const GameGrid = ({ gameQuery }: Props) => {
 
   if (error) return <Text>{error.message}</Text>;
 
-  if (data) {
-    console.log('This is the data array: ', data);
-  }
-
   return (
     <Box padding="10px">
       <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 4 }} spacing={6}>
@@ -36,19 +32,15 @@ const GameGrid = ({ gameQuery }: Props) => {
               <GameCardSkeleton />
             </GameCardContainer>
           ))}
-        {data?.pages.map((page, index) => {
-          console.log('This is the page from the data array: ', page);
-          console.log('This is the index of the data array: ', index);
-          return (
-            <React.Fragment key={index}>
-              {page.results.map((game) => (
-                <GameCardContainer key={game.id}>
-                  <GameCard game={game} />
-                </GameCardContainer>
-              ))}
-            </React.Fragment>
-          );
-        })}
+        {data?.pages.map((page, index) => (
+          <React.Fragment key={index}>
+            {page.results.map((game) => (
+              <GameCardContainer key={game.id}>
+                <GameCard game={game} />
+              </GameCardContainer>
+            ))}
+          </React.Fragment>
+        ))}
       </SimpleGrid>
       {hasNextPage && (
         <Button onClick={() => fetchNextPage()} marginY={5}>
