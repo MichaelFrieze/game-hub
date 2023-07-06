@@ -9,9 +9,6 @@ import SortSelector from './components/SortSelector';
 import { Genre } from './hooks/useGenres';
 import { Platform } from './hooks/usePlatforms';
 
-// undefined: the absence of a value
-// null: the intentional absence of a value
-
 export interface GameQuery {
   genreId?: number;
   platform: Platform | null;
